@@ -3,3 +3,21 @@ extends layout
 block content
 	.container
 		h1 Translate!
+		form(action="/getTranslation" method="post")
+			.row
+				.col-sm-6
+					.form-group
+						label(for="from") Language From:
+						input.form-control(type="text" name="from" placeholder="English")
+					.form-group
+						textarea.form-control(name="text", cols="30", rows="10")
+				.col-sm-6
+					.form-group
+						label(for="to") Language To:
+						input.form-control(type="text" name="to" placeholder="Japanese")
+					.form-group
+						textarea.form-control.translated-text(cols="30", rows="10")
+			.row
+				.col-sm-6
+					input.btn.btn-primary(type="submit")
+

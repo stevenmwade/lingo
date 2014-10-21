@@ -2,6 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose')
 var indexController = require('./controllers/index.js');
+var translateController = require('./controllers/translate.js');
+
 
 mongoose.connect('mongodb://localhost/lingo');
 
@@ -15,6 +17,7 @@ app.get('/', indexController.index);
 app.get('/translate', indexController.translate);
 app.get('/quiz', indexController.quiz);
 app.get('/progress', indexController.progress);
+app.post('/getTranslation', translateController.getTranslation);
 
 var server = app.listen(9063, function() {
 	console.log('Express server listening on port ' + server.address().port);

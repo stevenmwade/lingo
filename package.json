@@ -4,6 +4,7 @@
     "express": "^4",
     "jade": "^1",
     "mongoose": "^3.8.17",
-    "underscore": "^1.7.0"
+    "underscore": "^1.7.0",
+    "node-beglobal": "0.0.1-3"
   }
 }
