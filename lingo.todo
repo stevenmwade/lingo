@@ -1,0 +1,29 @@
+Lingo
+  Part 1:
+        Create MVC to get a shell for the app:
+        ☐ Welcome page
+        ☐ Translate page
+        ☐ Quiz page
+        ☐ Progress page
+    ☐ Start with the translate
+        ☐ BeGlobal API
+        ☐ node-beglobal
+    ☐ Set up logic for storing data
+        Quiz types:
+            ☐ Random Quiz
+            ☐ Hardest- 10 most words they've gotten wrong the most
+            ☐ Least Practiced - 10 words they practiced the least
+            ☐ Most Recent - the most recent 10 words they were tested on
+        Progress:
+            ☐ Total number of quizes
+            ☐ # of quizzes passed
+            ☐ # of quizzes failed
+            ☐ % of quizzes passed
+            ☐ Total number of words translated
+            ☐ Number of words correctly translated
+            ☐ Number of words incorrectly translated
+            ☐ % words translated correctly
+            ☐ Best 10 words
+            ☐ Worst 10 words
+       ☐ Allow reset of data
+   ☐ Three failed quizzes resets
