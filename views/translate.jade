@@ -3,21 +3,28 @@ extends layout
 block content
 	.container
 		h1 Translate!
-		form(action="/getTranslation" method="post")
+		form#translation(action="/getTranslation" method="post")
 			.row
 				.col-sm-6
 					.form-group
-						label(for="from") Language From:
-						input.form-control(type="text" name="from" placeholder="English")
+						.btn-group
+							select.btn.btn-default(name="from")
+								for language in languages
+									option(value="#{language.code}") #{language.name}
 					.form-group
 						textarea.form-control(name="text", cols="30", rows="10")
 				.col-sm-6
 					.form-group
-						label(for="to") Language To:
-						input.form-control(type="text" name="to" placeholder="Japanese")
+						.btn-group
+							select.btn.btn-default(name="to")
+								for language in languages
+									option(value="#{language.code}") #{language.name}
 					.form-group
 						textarea.form-control.translated-text(cols="30", rows="10")
 			.row
 				.col-sm-6
-					input.btn.btn-primary(type="submit")
+					.form-btns
+						button.btn.btn-primary(type="submit") Submit
+						button.btn.btn-danger#add-set Add word to quiz
+
 

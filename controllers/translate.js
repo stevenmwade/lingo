@@ -8,17 +8,18 @@ var beglobal = new BeGlobal.BeglobalAPI({
 var translateController = {
 	getTranslation: function(req, res){
 		var languages = Languages.getLanguages();
-		var findCode = function(name) {
-			for (var i = 0; i < languages.length; i++) {
-				if (languages[i].name === name) {
-					return languages[i].code;
-				}
-			}
-		};
-		// Find codes for params
+		// var findCode = function(name) {
+		// 	for (var i = 0; i < languages.length; i++) {
+		// 		if (languages[i].name === name) {
+		// 			return languages[i].code;
+		// 		}
+		// 	}
+		// };
+
+		console.log(req.body);
 		var text = req.body.text;
-		var from = findCode(req.body.from);
-		var to = findCode(req.body.to);
+		var from = req.body.from;
+		var to = req.body.to;
 		
 		// Translation
 		beglobal.translations.translate(
@@ -27,7 +28,7 @@ var translateController = {
 		    if (err) {
 		      return console.log(err);
 		    }
-		    res.redirect('/translate');
+		    res.send(results.translation);
 		    console.log('Translate results:', results);
 		  }
 		);

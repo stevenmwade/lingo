@@ -52,3 +52,10 @@ div.jumbotron h1 {
 .jumbo-btn button {
 	margin-right: 20px;
 }
+.language-menu {
+	height: 300px;
+	overflow: scroll;
+}
+.form-btns button {
+	margin-right: 20px;
+}
