@@ -2,12 +2,12 @@ Lingo
   Part 1:
         Create MVC to get a shell for the app:
         ✔ Welcome page @done (14-10-21 15:34)
-        ☐ Translate page
+        ✔ Translate page @done (14-10-22 15:37)
         ☐ Quiz page
         ☐ Progress page
     ☐ Start with the translate
-        ☐ BeGlobal API
-        ☐ node-beglobal
+        ✔ BeGlobal API @done (14-10-22 15:37)
+        ✔ node-beglobal @done (14-10-22 15:37)
     ☐ Set up logic for storing data
         Quiz types:
             ☐ Random Quiz
@@ -15,15 +15,17 @@ Lingo
             ☐ Least Practiced - 10 words they practiced the least
             ☐ Most Recent - the most recent 10 words they were tested on
         Progress:
-            ☐ Total number of quizes
-            ☐ # of quizzes passed
-            ☐ # of quizzes failed
-            ☐ % of quizzes passed
-            ☐ Total number of words translated
-            ☐ Number of words correctly translated
-            ☐ Number of words incorrectly translated
-            ☐ % words translated correctly
-            ☐ Best 10 words
-            ☐ Worst 10 words
+            ✔ Total number of quizes @done (14-10-22 15:48)
+            ✔ # of quizzes passed @done (14-10-22 15:48)
+            ✔ # of quizzes failed @done (14-10-22 15:48)
+            ✔ % of quizzes passed @done (14-10-22 15:48)
+            ✔ Total number of words translated @done (14-10-22 15:48)
+            ✔ Number of words correctly translated @done (14-10-22 15:48)
+            ✔ Number of words incorrectly translated @done (14-10-22 15:48)
+            ✔ % words translated correctly @done (14-10-22 15:48)
+            ✔ Best 10 words @done (14-10-22 15:48)
+            ✔ Worst 10 words @done (14-10-22 15:48)
+            ✔ Least practiced words @done (14-10-22 15:50)
+            ✔ Most recent words @done (14-10-22 15:50)
        ☐ Allow reset of data
    ☐ Three failed quizzes resets

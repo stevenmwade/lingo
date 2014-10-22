@@ -4,7 +4,11 @@ var passport = require('passport')
 
 var indexController = {
 	index: function(req, res) {
-		res.render('index');
+		console.log(req.user);
+		res.render('index', {
+			user: req.user,
+			languages: Languages.getLanguages()
+		});
 	},
 	translate: function(req, res){
 		res.render('translate', {

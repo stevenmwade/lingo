@@ -3,9 +3,9 @@ html(lang='en')
 	head
 		meta(charset="utf-8")
 		title Lingo for da Japanese
-		link(rel="stylesheet", href="/styles/main.css")
 		link(rel="stylesheet", href="/vendor/bootstrap.min.css")
 		link(rel="stylesheet", href="/vendor/bootstrap-theme.min.css")
+		link(rel="stylesheet", href="/styles/main.css")
 
 
 	body
@@ -23,9 +23,20 @@ html(lang='en')
 							a(href="/quiz") Quiz
 						li
 							a(href="/progress") Progress
+						li.nav-divider
+							div
+						if(user !== undefined)
+							li
+								a.nav-username() <strong>#{user.username}</strong>
+						li
+							if( user !== undefined )
+								a(href="/auth/logout") Log Out
+							else
+								a(data-toggle="modal", data-target="#logInModal") Log In
+								
+
 		block content
-		block logInModal
-		block signUpModal
+
 		script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js")
 		script(src="/js/main.js")
 		script(src="/vendor/bootstrap.min.js")

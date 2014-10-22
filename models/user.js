@@ -22,6 +22,31 @@ var userSchema = mongoose.Schema({
   password: {
     type: String,
     required: true
+  },
+  quizzes: [
+  {
+    name: String,
+    quiz: [
+    {
+      question: String,
+      answer: String
+    }
+    ]
+  }
+  ],
+  progress: {
+    totalQuizzes: Number,
+    quizzesPassed: Number,
+    quizzesFailed: Number,
+    passPercentage: Number,
+    wordsTranslated: Number,
+    wordsCorrectlyTranslated: Number,
+    wordsIncorrectlyTranslated: Number,
+    percentCorrectlyTranslated: Number,
+    bestWords: [String],
+    worstWords: [String],
+    leastPracticedWords: [String],
+    mostRecentWords: [String]
   }
 });
 

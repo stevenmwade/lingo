@@ -34,13 +34,18 @@ img {
 .navbar-padding {
 	padding-right: 100px;
 }
+.nav .nav-divider {
+	height: 0px;
+	padding: 15px;
+	background-color: transparent;
+}
 
 div.jumbotron {
 	position: relative;
 	width: 33%;
 	top: 150px;
 	border-radius: 5px;
-	background-color: rgba(256, 256, 256, 0.6);
+	background-color: rgba(256, 256, 256, 0.7);
 }
 div.jumbotron h1 {
 	margin-top: 0;
@@ -58,4 +63,12 @@ div.jumbotron h1 {
 }
 .form-btns button {
 	margin-right: 20px;
+}
+.index-translate {
+	border: solid 1px #999;
+}
+.quiz-title {
+	font-family: 'wisdom-script', 'HelveticaNeue-Light', sans-serif;
+	text-align: center;
+	margin-bottom: 40px;
 }
