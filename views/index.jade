@@ -7,7 +7,69 @@ block content
 				.jumbo-title
 					h1 Learn the language you want!
 				.jumbo-btn
-					button(href="", class="btn btn-lg btn-danger") Sign Up
-					button(href="", class="btn btn-lg btn-primary") Log In
+					button(href="", class="btn btn-lg btn-danger", data-toggle="modal", data-target="#signUpModal") Sign Up
+					button(href="", class="btn btn-lg btn-primary", data-toggle="modal", data-target="#logInModal") Log In
 	.main-page-img
 		img(src="/img/Kinkaku.jpg", alt="Kinkaku-ji, Japan")
+
+block logInModal
+	.modal.fade#logInModal
+			.modal-dialog
+				.modal-content
+					form(action="/auth/login" method="post")
+						.modal-header
+							button.close(type="button", data-dismiss="modal")
+								span(aria-hidden="true") &times;
+								span.sr-only Close
+							h4.modal-title Log In
+						.modal-body
+							.form-group
+								label(for="username") Username:
+								input.form-control(type="text", name="username", placeholder="Enter username...")
+							.form-group
+								label(for="username") Password:
+								input.form-control(type="password", name="password", placeholder="Enter password...")
+						.modal-footer
+							button.btn.btn-default(data-dismiss="modal") Close
+							button.btn.btn-info(type="button") Sign in with Facebook
+							button.btn.btn-warning(type="submit") Log In
+
+block signUpModal
+	.modal.fade#signUpModal
+			.modal-dialog
+				.modal-content
+					form(action="/auth/signup" method="post")
+						.modal-header
+							button.close(type="button", data-dismiss="modal")
+								span(aria-hidden="true") &times;
+								span.sr-only Close
+							h4.modal-title Sign Up
+						.modal-body
+							.form-group
+								label(for="username") Username:
+								input.form-control(type="text", name="username", placeholder="Enter username...")
+							.form-group
+								label(for="username") Password:
+								input.form-control(type="password", name="password", placeholder="Enter password...")
+							.form-group
+								label(for="email") Email:
+								input.form-control(type="text", name="email", placeholder="Enter email...")
+						.modal-footer
+							button.btn.btn-default(data-dismiss="modal") Cancel
+							button.btn.btn-warning(type="submit") Sign Up
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
