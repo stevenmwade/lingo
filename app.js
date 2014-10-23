@@ -25,7 +25,8 @@ var passportConfig = require('./config/passport');
 
 // Pull in our two controllers...
 var indexController = require('./controllers/index');
-var authenticationController = require('./controllers/authentication');
+var authenticationController = require('./controllers/authentication.js');
+var quizController = require('./controllers/quizController.js');
 var translateController = require('./controllers/translate.js');
 
 
@@ -83,7 +84,11 @@ app.get('/translate', indexController.translate);
 // to .use()
 app.use(passportConfig.ensureAuthenticated);
 
+// Quizzes
 app.get('/quiz', indexController.quiz);
+app.get('/quizzes/getQuizzes', quizController.getQuizzes);
+app.post('/quizzes/addQuiz', quizController.addQuiz);
+
 app.get('/progress', indexController.progress);
 app.post('/getTranslation', translateController.getTranslation);
 

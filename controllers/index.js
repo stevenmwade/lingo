@@ -16,7 +16,9 @@ var indexController = {
 		});
 	},
 	quiz: function(req, res){
-		res.render('quiz');
+		res.render('quiz', {
+			user: req.user
+		});
 	},
 	progress: function(req, res){
 		res.render('progress');

@@ -72,3 +72,48 @@ div.jumbotron h1 {
 	text-align: center;
 	margin-bottom: 40px;
 }
+.quiz-progress {
+	border: solid 1px #999;
+	-webkit-box-shadow: 2px 2px 10px 0px rgba(50, 50, 50, 0.45);
+	-moz-box-shadow:    2px 2px 10px 0px rgba(50, 50, 50, 0.45);
+	box-shadow:         2px 2px 10px 0px rgba(50, 50, 50, 0.45);
+	border-radius: 5px;
+	color: #133035;
+}
+.quiz-section-title {
+	font-family: 'wisdom-script', "HelveticaNeue-Light", sans-serif;
+	text-align: center;
+	color: #35646c;
+	padding: 10px 0;
+	margin: 0 20px;
+	border-bottom: dashed 1px #133035;
+}
+.quiz-section-content {
+	padding-top: 10px;
+}
+.quiz-margin {
+	margin-top: 40px;
+}
+#quiz-name-input {
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,14 +1,25 @@
 extends layout
 
 block content
-	.container
-		.col-sm-12
-			.quiz-title
-				h1 Quizzes
-		.col-sm-6
-			h1 Quiz!
-		.col-sm-6
-			h2 Progress
-			p super awesome
-			p failed none
-			p Your worst words are none
+	.container.quiz-margin
+		.col-sm-8
+			.container-fluid
+				h1.quiz-section-title Quizzes
+				.quiz-section-content
+					.display-quizzes
+						if(user.quizzes.length === 0)
+							h3 You have no quizzes. Create one!
+						//- else
+						//- 	for quiz in user.quizzes
+						//- 		h3: a= quiz.name
+					.quiz-adder.form-inline
+						button.add-quiz.btn.btn-danger.pull-left Make a quiz
+						input#quiz-name-input.form-control.pull-left(type="text", placeholder="Quiz name...", name="name")
+		.col-sm-4
+			.quiz-progress
+				.container-fluid
+					h2.quiz-section-title Progress
+					.quiz-section-content
+						p super awesome
+						p failed none
+						p Your worst words are none
