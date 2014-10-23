@@ -1,0 +1,28 @@
+extends layout
+
+block content
+	.container
+		h1 Translate!
+		form#createQuiz(action="/quizzes/addToQuiz" method="post")
+			.row
+				.col-sm-6
+					.form-group
+						.btn-group
+							select.btn.btn-default(name="from")
+								for language in languages
+									option(value="#{language.code}") #{language.name}
+					.form-group
+						textarea.form-control(name="q", cols="30", rows="10")
+				.col-sm-6
+					.form-group
+						.btn-group
+							select.btn.btn-default(name="to")
+								for language in languages
+									option(value="#{language.code}") #{language.name}
+					.form-group
+						textarea.form-control.translated-text(name="a", cols="30", rows="10")
+			.row
+				.col-sm-6
+					.form-btns
+						button.btn.btn-primary.translate-word Translate
+						button.btn.btn-danger(type="submit") Add word to quiz

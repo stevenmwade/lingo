@@ -88,7 +88,7 @@ app.use(passportConfig.ensureAuthenticated);
 app.get('/quiz', indexController.quiz);
 app.get('/quizzes/getQuizzes', quizController.getQuizzes);
 app.post('/quizzes/addQuiz', quizController.addQuiz);
-
+app.get('/quiz/:id', quizController.createQuiz);
 app.get('/progress', indexController.progress);
 app.post('/getTranslation', translateController.getTranslation);
 

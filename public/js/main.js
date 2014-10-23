@@ -29,11 +29,29 @@ $(document).ready(function() {
 			$('.translated-text').val(responseData);
 		});
 	});
+	$('.translate-word').on('click', function(event) {
+		event.preventDefault();
+		console.log('Form submitting!');
+		var from = $(this).find('[name=from]').val();
+		var to = $(this).find('[name=to]').val();
+		var text = $(this).find('[name=q]').val();
+		var translationData = {
+			from: from,
+			to: to,
+			text: text
+		};
+		console.log('Translation data: ', translationData);
+
+		$.post('/getTranslation', translationData, function(responseData){
+			console.log('Response: ', responseData);
+			$('.translated-text').val(responseData);
+		});
+	});
 
 	$.get('/quizzes/getQuizzes', {}, function(responseData){
 		for (var i = 0; i < responseData.length; i++) {
-			var trackEl = renderQuiz(responseData[i]);
-			$('.display-quizzes').append(trackEl);
+			var quizEl = renderQuiz(responseData[i]);
+			$('.display-quizzes').append(quizEl);
 		};
 		console.log('Get quiz, responses: ', responseData);
 	});
@@ -48,8 +66,10 @@ $(document).ready(function() {
 		var name = $('#quiz-name-input').val();
 		console.log('Name: ', name);
 		$.post('/quizzes/addQuiz', {name: name}, function(responseData){
-			var trackEl = renderQuiz(responseData);
-			$('.display-quizzes').append(trackEl);
+			var quizEl = renderQuiz(responseData);
+			console.log('Submit response: ', responseData);
+			console.log('Quiz element: ', quizEl);
+			$('.display-quizzes').append(quizEl);
 		});
 		
 	});
