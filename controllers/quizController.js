@@ -1,3 +1,5 @@
+var Languages = require('../models/languages.js');
+
 var quizController = {
 	addQuiz: function(req, res){
 		var user = req.user;
@@ -18,7 +20,23 @@ var quizController = {
 		res.send(req.user.quizzes);
 	},
 	createQuiz: function(req, res){
-		
+		res.render('createQuiz', {
+			languages: Languages.getLanguages(),
+			id: req.params.id
+		});
+		// res.send(req.user.quizzes);
+	},
+	addToQuiz: function(req, res){
+		var q = req.body.q;
+		var a = req.body.a;
+		var id = req.body.id;
+		var addPair = {
+			q: q,
+			a: a
+		};
+		req.user.quizzes.id(id).quiz.push(addPair);
+		req.user.save();
+		res.send('Word Added!');
 	}
 
 };

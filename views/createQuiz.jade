@@ -2,8 +2,8 @@ extends layout
 
 block content
 	.container
-		h1 Translate!
-		form#createQuiz(action="/quizzes/addToQuiz" method="post")
+		h1 quiz.name
+		form#createQuiz(action="/quiz/addToQuiz" method="post")
 			.row
 				.col-sm-6
 					.form-group
@@ -21,6 +21,7 @@ block content
 									option(value="#{language.code}") #{language.name}
 					.form-group
 						textarea.form-control.translated-text(name="a", cols="30", rows="10")
+						input(type="hidden", name="id", value=id)
 			.row
 				.col-sm-6
 					.form-btns

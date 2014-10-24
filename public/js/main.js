@@ -5,7 +5,7 @@ var renderQuiz = function(quizData){
 	// access the track's specific database ID
 	el.attr('data-id', quizData._id);
 
-	el.append('<h3><a>'+ quizData.name +'</a></h4>');
+	el.append('<h3><a href="/quiz/'+quizData._id+'" class="quiz-link">'+ quizData.name +'</a></h4>');
 	return el;
 };
 
@@ -32,9 +32,10 @@ $(document).ready(function() {
 	$('.translate-word').on('click', function(event) {
 		event.preventDefault();
 		console.log('Form submitting!');
-		var from = $(this).find('[name=from]').val();
-		var to = $(this).find('[name=to]').val();
-		var text = $(this).find('[name=q]').val();
+		console.log('This', $(this));
+		var from = $(this).closest('#createQuiz').find('[name=from]').val();
+		var to = $(this).closest('#createQuiz').find('[name=to]').val();
+		var text = $(this).closest('#createQuiz').find('[name=q]').val();
 		var translationData = {
 			from: from,
 			to: to,
@@ -53,7 +54,7 @@ $(document).ready(function() {
 			var quizEl = renderQuiz(responseData[i]);
 			$('.display-quizzes').append(quizEl);
 		};
-		console.log('Get quiz, responses: ', responseData);
+		// console.log('Get quiz, responses: ', responseData);
 	});
 
 	$(document).on('click', '.add-quiz', function(event) {
@@ -65,13 +66,55 @@ $(document).ready(function() {
 	$(document).on('click', '.submit-quiz', function(event) {
 		var name = $('#quiz-name-input').val();
 		console.log('Name: ', name);
+		$('#quiz-name-input').val('');
 		$.post('/quizzes/addQuiz', {name: name}, function(responseData){
 			var quizEl = renderQuiz(responseData);
 			console.log('Submit response: ', responseData);
 			console.log('Quiz element: ', quizEl);
 			$('.display-quizzes').append(quizEl);
 		});
-		
 	});
 
+	$('#createQuiz').on('submit', function(event) {
+		event.preventDefault();
+		var q = $(this).find('[name=q]').val();
+		var a = $(this).find('[name=a]').val();
+		var id = $(this).find('[name=id]').val();
+
+		var addPair = {
+			q: q,
+			a: a,
+			id: id
+		};
+
+		$.post('/quiz/addToQuiz', addPair, function(responseData){
+			console.log(responseData);
+		});
+
+
+
+	});
+
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

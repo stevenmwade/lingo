@@ -28,8 +28,8 @@ var userSchema = mongoose.Schema({
     name: String,
     quiz: [
     {
-      question: String,
-      answer: String
+      q: String,
+      a: String
     }
     ]
   }
