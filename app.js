@@ -93,7 +93,7 @@ app.post('/quiz/addToQuiz', quizController.addToQuiz);
 app.get('/progress', indexController.progress);
 app.post('/getTranslation', translateController.getTranslation);
 
-
-var server = app.listen(9063, function() {
+var port = process.env.PORT || 9063;
+var server = app.listen(port, function() {
 	console.log('Express server listening on port ' + server.address().port);
 });
