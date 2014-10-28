@@ -30,7 +30,7 @@ var quizController = require('./controllers/quizController.js');
 var translateController = require('./controllers/translate.js');
 
 
-mongoose.connect('mongodb://localhost/lingo');
+mongoose.connect(process.env.MONGOHQ_URL || "mongodb://localhost/lingo");
 
 // Define a base express app...
 var app = express();
@@ -94,7 +94,7 @@ app.post('/quiz/addToQuiz', quizController.addToQuiz);
 app.get('/progress', indexController.progress);
 app.post('/getTranslation', translateController.getTranslation);
 
-
-var server = app.listen(9063, function() {
+var port = process.env.PORT || 9063;
+var server = app.listen(port, function() {
 	console.log('Express server listening on port ' + server.address().port);
 });
