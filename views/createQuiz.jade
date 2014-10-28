@@ -2,28 +2,34 @@ extends layout
 
 block content
 	.container
-		h1 quiz.name
+		h1= quiz.name
 		form#createQuiz(action="/quiz/addToQuiz" method="post")
-			.row
-				.col-sm-6
-					.form-group
-						.btn-group
-							select.btn.btn-default(name="from")
-								for language in languages
-									option(value="#{language.code}") #{language.name}
-					.form-group
-						textarea.form-control(name="q", cols="30", rows="10")
-				.col-sm-6
-					.form-group
-						.btn-group
-							select.btn.btn-default(name="to")
-								for language in languages
-									option(value="#{language.code}") #{language.name}
-					.form-group
-						textarea.form-control.translated-text(name="a", cols="30", rows="10")
-						input(type="hidden", name="id", value=id)
-			.row
-				.col-sm-6
-					.form-btns
-						button.btn.btn-primary.translate-word Translate
-						button.btn.btn-danger(type="submit") Add word to quiz
+			aside#quiz-words.col-sm-4.quiz-side.side-padding
+			.col-sm-8
+				.row
+					.col-sm-12
+						.form-group
+							.btn-group
+								select.btn.btn-default(name="from")
+									for language in languages
+										option(value="#{language.code}") #{language.name}
+						.form-group
+							textarea.form-control(name="q", cols="30", rows="10")
+				.row
+					.col-sm-12
+						.form-group
+							.btn-group
+								select.btn.btn-default(name="to")
+									for language in languages
+										if(language.name === "Japanese")
+											option(value="#{language.code}", selected="selected") #{language.name}
+										else
+											option(value="#{language.code}") #{language.name}
+						.form-group
+							textarea.form-control.translated-text(name="a", cols="30", rows="10")
+							input(type="hidden", name="id", value=id)
+				.row
+					.col-sm-12
+						.form-btns
+							button.btn.btn-primary.translate-word Translate
+							button.btn.btn-danger(type="submit") Add word to quiz

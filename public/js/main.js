@@ -4,8 +4,22 @@ var renderQuiz = function(quizData){
 	// Set an attribute on the main containing li that will let us
 	// access the track's specific database ID
 	el.attr('data-id', quizData._id);
+	el.attr('class', 'each-quiz');
 
-	el.append('<h3><a href="/quiz/'+quizData._id+'" class="quiz-link">'+ quizData.name +'</a></h4>');
+	el.append('<h3><a href="/quiz/' +
+		quizData._id +
+		'" class="quiz-link">' +
+		quizData.name +
+		'</a></h4>');
+	return el;
+};
+var renderQuizWords = function(quizData){
+	var el = $('<div>');
+	el.attr('class', 'row');
+	el.append( '<div class="col-xs-4 question">'+quizData.q+'</div>' +
+		'<div class="col-xs-4"><i class="fa fa-arrows-h"></i></div>' +
+		'<div class="col-xs-4 answer">'+quizData.a+'</div>'
+	);
 	return el;
 };
 
@@ -49,6 +63,14 @@ $(document).ready(function() {
 		});
 	});
 
+	$.get('/quizzes/getWords', {}, function(responseData){
+		console.log('Get words response: ', responseData);
+		for (var i = 0; i < responseData.length; i++) {
+			var quizWords = renderQuizWords(responseData[i]);
+			$('#quiz-words').append(quizWords);
+		}
+	});
+
 	$.get('/quizzes/getQuizzes', {}, function(responseData){
 		for (var i = 0; i < responseData.length; i++) {
 			var quizEl = renderQuiz(responseData[i]);
@@ -88,12 +110,10 @@ $(document).ready(function() {
 		};
 
 		$.post('/quiz/addToQuiz', addPair, function(responseData){
-			console.log(responseData);
+			console.log("Add to quiz response: ", responseData);
 		});
-
-
-
 	});
+
 
 
 });

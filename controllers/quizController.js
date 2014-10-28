@@ -20,9 +20,11 @@ var quizController = {
 		res.send(req.user.quizzes);
 	},
 	createQuiz: function(req, res){
+		var id = req.params.id;
 		res.render('createQuiz', {
 			languages: Languages.getLanguages(),
-			id: req.params.id
+			id: id,
+			quiz: req.user.quizzes.id(id)
 		});
 		// res.send(req.user.quizzes);
 	},
@@ -36,7 +38,11 @@ var quizController = {
 		};
 		req.user.quizzes.id(id).quiz.push(addPair);
 		req.user.save();
-		res.send('Word Added!');
+		res.send(addPair);
+	},
+	getWords: function(req, res){
+		var id = req.body;
+		res.send(req);
 	}
 
 };
