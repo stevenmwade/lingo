@@ -30,7 +30,7 @@ var quizController = require('./controllers/quizController.js');
 var translateController = require('./controllers/translate.js');
 
 
-mongoose.connect('mongodb://localhost/lingo');
+mongoose.connect(process.env.MONGOHQ_URL || "mongodb://localhost/lingo");
 
 // Define a base express app...
 var app = express();
