@@ -5,13 +5,21 @@ block content
 		h1= quiz.name
 		form#createQuiz(action="/quiz/addToQuiz" method="post")
 			aside#quiz-words.col-sm-4.quiz-side.side-padding
+				//- for pair in quiz.quiz
+				//- 	.row
+				//- 		.col-xs-4
+				//- 			p= pair.q
+				//- 		.col-xs-4
+				//- 			i.fa.fa-arrows-h
+				//- 		.col-xs-4
+				//- 			em= pair.a
 			.col-sm-8
 				.row
 					.col-sm-12
 						.form-group
 							.btn-group
 								select.btn.btn-default(name="from")
-									for language in languages
+									//- for language in languages
 										option(value="#{language.code}") #{language.name}
 						.form-group
 							textarea.form-control(name="q", cols="30", rows="10")
@@ -20,7 +28,7 @@ block content
 						.form-group
 							.btn-group
 								select.btn.btn-default(name="to")
-									for language in languages
+									//- for language in languages
 										if(language.name === "Japanese")
 											option(value="#{language.code}", selected="selected") #{language.name}
 										else

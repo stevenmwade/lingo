@@ -1,9 +1,9 @@
-var BeGlobal = require('node-beglobal');
-var Languages = require('../models/languages.js');
+// var BeGlobal = require('node-beglobal');
+// var Languages = require('../models/languages.js');
 
-var beglobal = new BeGlobal.BeglobalAPI({
-  api_token: 'mh89nSy1B6Rn6JKzgs5Kwg%3D%3D'
-});
+// var beglobal = new BeGlobal.BeglobalAPI({
+//   api_token: 'mh89nSy1B6Rn6JKzgs5Kwg%3D%3D'
+// });
 
 var translateController = {
 	getTranslation: function(req, res){

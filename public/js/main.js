@@ -63,7 +63,7 @@ $(document).ready(function() {
 		});
 	});
 
-	$.get('/quizzes/getWords', {}, function(responseData){
+	$.get('/quiz/getWords', {}, function(responseData){
 		console.log('Get words response: ', responseData);
 		for (var i = 0; i < responseData.length; i++) {
 			var quizWords = renderQuizWords(responseData[i]);

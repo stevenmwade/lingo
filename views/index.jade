@@ -18,7 +18,7 @@ block content
 								.form-group
 									.btn-group
 										select.btn.btn-default.index-translate(name="from")
-											for language in languages
+											//- for language in languages
 												option(value="#{language.code}") #{language.name}
 								.form-group
 									textarea.form-control.index-translate(name="text", cols="30", rows="5")
@@ -27,7 +27,7 @@ block content
 								.form-group
 									.btn-group
 										select.btn.btn-default.index-translate(name="to")
-											for language in languages
+											//- for language in languages
 												option(value="#{language.code}") #{language.name}
 								.form-group
 									textarea.form-control.translated-text.index-translate(cols="30", rows="5")
