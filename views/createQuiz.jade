@@ -19,7 +19,7 @@ block content
 						.form-group
 							.btn-group
 								select.btn.btn-default(name="from")
-									//- for language in languages
+									for language in languages
 										option(value="#{language.code}") #{language.name}
 						.form-group
 							textarea.form-control(name="q", cols="30", rows="10")
@@ -28,7 +28,7 @@ block content
 						.form-group
 							.btn-group
 								select.btn.btn-default(name="to")
-									//- for language in languages
+									for language in languages
 										if(language.name === "Japanese")
 											option(value="#{language.code}", selected="selected") #{language.name}
 										else

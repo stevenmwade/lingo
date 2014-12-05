@@ -22,7 +22,7 @@ var quizController = {
 	createQuiz: function(req, res){
 		var id = req.params.id;
 		res.render('createQuiz', {
-			// languages: Languages.getLanguages(),
+			languages: Languages.getLanguages(),
 			id: id,
 			quiz: req.user.quizzes.id(id)
 		});

@@ -1,4 +1,4 @@
-// var Languages = require('../models/languages.js');
+var Languages = require('../models/languages.js');
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
 
@@ -7,12 +7,12 @@ var indexController = {
 		console.log(req.user);
 		res.render('index', {
 			user: req.user,
-			// languages: Languages.getLanguages()
+			languages: Languages.getLanguages()
 		});
 	},
 	translate: function(req, res){
 		res.render('translate', {
-			// languages: Languages.getLanguages()
+			languages: Languages.getLanguages()
 		});
 	},
 	quiz: function(req, res){
